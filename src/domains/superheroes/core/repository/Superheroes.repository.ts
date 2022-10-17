@@ -1,20 +1,15 @@
 import type { SuperheroesView } from "../../application/Superheroes.view";
 import type { Superheroes } from "../Superheroes";
 
-interface ManageData {
+export interface ManageDataRepository {
   getResponseAPIByPage(page: string | null): Promise<Superheroes>;
 }
 
-interface PersistData {
+export interface PersistDataRepository {
   persistDataOnStorage(data: SuperheroesView): void;
   getStorageKeyInStore(key: string): string | null;
 }
 
-interface Notification {
+export interface NotificationRepository {
   loaderVisibility(state: boolean): void;
 }
-
-export interface SuperheroesRepository
-  extends PersistData,
-  ManageData,
-  Notification { }
