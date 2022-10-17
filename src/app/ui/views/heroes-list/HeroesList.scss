@@ -1,0 +1,39 @@
+.heroes-list {
+  $heroeslist: &;
+  width: 100%;
+  max-width: px2rem(650);
+
+  @include create-animation($name: 'appear-teams-item',
+    $from: translateY(-100%),
+    $to: translateY(0),
+    $duration: .5s,
+    $duration-out: 0s);
+
+  &__table {
+    +#{$heroeslist}__footer {
+      margin-top: px2rem(20);
+    }
+  }
+
+  &__row {
+    +#{$heroeslist}__row {
+      margin-top: .5rem;
+    }
+  }
+
+  &__footer {
+    &__list {
+      display: flex;
+
+      >li {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+
+        +li {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
